@@ -46,6 +46,15 @@ public class NavigationDrawerFragment extends BottomSheetDialogFragment {
                     case R.id.tracker:
                         startActivity(new Intent(getActivity(), FragmentActivity.class).putExtra("case", 0));
                         return true;
+                    case R.id.item1:
+                        startActivity(new Intent(getActivity(), FragmentActivity.class).putExtra("case", 2));
+                        return true;
+                    case R.id.item2:
+                        startActivity(new Intent(getActivity(), FragmentActivity.class).putExtra("case", 3));
+                        return true;
+                    case R.id.item3:
+                        startActivity(new Intent(getActivity(), FragmentActivity.class).putExtra("case", 4));
+                        return true;
                     default:
                         return true;
                 }

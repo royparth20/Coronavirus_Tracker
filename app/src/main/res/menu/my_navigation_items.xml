@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <group
-        android:checkableBehavior="none"
-        android:menuCategory="container">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <group android:id="@+id/grp2">
+        <item
+            android:id="@+id/item1"
+            android:title="HOW IT SPREADS" />
         <item
             android:id="@+id/sypmtoms"
-            android:icon="@drawable/ic_add_black_24dp"
             android:title="Symptoms" />
         <item
+            android:id="@+id/item2"
+            android:title="PREVENTION" />
+        <item
+            android:id="@+id/item3"
+            android:title="TREATMENTS" />
+    </group>
+    <group android:id="@+id/grp1">
+        <item
             android:id="@+id/tracker"
-            android:icon="@drawable/ic_map_black_24dp"
             android:title="Map" />
     </group>
 </menu>

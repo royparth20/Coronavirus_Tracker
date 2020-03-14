@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbarStyle="outsideOverlay"
-    android:scrollbars="vertical">
+    tools:context=".Fragment.SimpleFragment">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,66 +14,13 @@
         android:paddingBottom="80dp">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_item1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_marginTop="5dp"
             android:padding="10dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="5dp"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.MyApp.LocationButton">
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
-                    android:text="@string/overview"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-                    android:textColor="?attr/colorPrimary" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="?attr/colorPrimary" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:justificationMode="inter_word"
-                    android:paddingStart="5dp"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="20dp"
-                    android:paddingEnd="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingBottom="20dp"
-                    android:text="@string/overview_1"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:justificationMode="inter_word"
-                    android:paddingStart="5dp"
-                    android:paddingLeft="5dp"
-                    android:paddingEnd="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingBottom="10dp"
-                    android:text="@string/overview_2"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginTop="5dp"
-            android:padding="10dp"
+            android:visibility="gone"
             app:cardCornerRadius="20dp"
             app:cardElevation="5dp"
             app:shapeAppearance="@style/ShapeAppearanceOverlay.MyApp.LocationButton">
@@ -88,7 +36,7 @@
                     android:paddingBottom="10dp"
                     android:text="HOW IT SPREADS"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-                    android:textColor="?attr/colorPrimary" />
+                    android:textColor="@color/primaryLightColor" />
 
                 <View
                     android:layout_width="match_parent"
@@ -110,13 +58,14 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
         </com.google.android.material.card.MaterialCardView>
 
-
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_item2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_marginTop="5dp"
             android:padding="10dp"
+            android:visibility="gone"
             app:cardCornerRadius="20dp"
             app:cardElevation="5dp"
             app:shapeAppearance="@style/ShapeAppearanceOverlay.MyApp.LocationButton">
@@ -131,8 +80,9 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
                     android:text="PREVENTION"
+
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-                    android:textColor="?attr/colorPrimary" />
+                    android:textColor="@color/primaryLightColor" />
 
                 <View
                     android:layout_width="match_parent"
@@ -173,5 +123,108 @@
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
             </androidx.appcompat.widget.LinearLayoutCompat>
         </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_item3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+            android:visibility="gone"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp"
+            app:shapeAppearance="@style/ShapeAppearanceOverlay.MyApp.LocationButton">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:text="TREATMENTS"
+
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                    android:textColor="@color/primaryLightColor" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="?attr/colorPrimary" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:paddingStart="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="20dp"
+                    android:paddingEnd="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="20dp"
+                    android:text="\t\tThere is no specific medicine to prevent or treat coronavirus disease (COVID-19). People may need supportive care to help them breathe."
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="?attr/colorOnBackground" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Self-Care"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="@color/primaryLightColor" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:paddingStart="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/self_care_1"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="?attr/colorOnBackground" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="Medical treatments"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textColor="@color/primaryLightColor" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:paddingStart="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/medicatl_tretment_1"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

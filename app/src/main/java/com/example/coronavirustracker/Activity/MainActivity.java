@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private BaseAdapter adapter;
     private BottomAppBar bar;
 
-    @SuppressLint("WrongConstant")
+    @SuppressLint({"WrongConstant", "ResourceAsColor"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
 //        NavigationView navigationView = findViewById(R.id.navigation);
         bar = findViewById(R.id.bar);
+        bar.setTitle(R.string.app_name);
+        bar.setTitleTextColor(R.color.colorAccent);
 //        setSupportActionBar(bar);
         bar.setNavigationOnClickListener(new View.OnClickListener() {
+            @SuppressLint("LongLogTag")
             @Override
             public void onClick(View v) {
                 NavigationDrawerFragment navigationView = NavigationDrawerFragment.newInstance();
                 navigationView.show(getSupportFragmentManager(), TAG);
 //navigationView.showNow(getSupportFragmentManager(),TAG);
-                Log.e(TAG, "onClick: "+"hi" );
+                Log.e(TAG, "onClick: " + "hi");
             }
         });
         FloatingActionButton f_btn = findViewById(R.id.fab);

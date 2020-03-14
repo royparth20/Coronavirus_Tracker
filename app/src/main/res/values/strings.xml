@@ -3,7 +3,7 @@
     <string name="textfield_label">Hello World</string>
     <string name="url_link">https://spreadsheets.google.com/feeds/list/1lwnfa-GlNRykWBL5y7tWpLxDoCfs8BvzWxFjeOZ1YJk/1/public/values?alt=json</string>
     <string name="map">Map</string>
-    <string name="title_activity_fragment">FragmentActivity</string>
+    <string name="title_activity_fragment">ABC</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -18,4 +18,14 @@
     <string name="location">Location</string>
     <string name="symptoms">Symptoms</string>
     <string name="firebase_url">https://us-central1-diseases-b66a0.cloudfunctions.net/FUNCTIONS</string>
+    <string name="overview_1">\t\tCoronavirus disease (COVID-19) is an infectious disease caused by a new virus that had not been previously identified in humans.</string>
+    <string name="overview_2">\t\tThe virus causes respiratory illness (like the flu) with symptoms such as a cough, fever and in more severe cases, pneumonia. You can protect yourself by washing your hands frequently and avoiding touching your face.</string>
+    <string name="overview">OverView</string>
+    <string name="how_it_spread_1">\t\tThe new coronavirus spreads primarily through contact with an infected person when they cough or sneeze, or through droplets of saliva or discharge from the nose.</string>
+    <string name="prevention_2">\t\tYou can reduce your risk of infection if you: \n\u2023 Clean hands frequently with alcohol-based hand rub or soap and water \n\u2023 Cover nose and mouth when coughing and sneezing with tissue or flexed elbow \n\u2023 Avoid close contact (1 metre or 3 feet) with anyone with cold or flu-like symptoms</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="self_care_1">\t\tIf you have mild symptoms, stay at home until you’ve recovered. You can relieve your symptoms if you:\n \u2023 rest and sleep \n \u2023 keep warm \n \u2023 drink plenty of liquids \n \u2023 use a room humidifier or take a hot shower to help ease a sore throat and cough</string>
+    <string name="medicatl_tretment_1">\t\tIf you develop a fever, cough, and have difficulty breathing, promptly seek medical care. Call in advance and tell your health provider of any recent travel or recent contact with travelers.</string>
 </resources>
