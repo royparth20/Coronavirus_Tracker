@@ -41,7 +41,7 @@ public class MainLayoutFragment extends Fragment {
             setDataList(VolleyDataRetrive.dataList);
             adapter = new BaseAdapter(activity.getApplicationContext(), dataList);
 
-            dataRetrive.setAdapter(adapter);
+            dataRetrive.setBaseAdapter(adapter);
             dataRetrive.getDataStringRequest();
 
             adapter.notifyDataSetChanged();

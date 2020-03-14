@@ -24,7 +24,18 @@ public class FragmentActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(R.string.title_activity_fragment);
-        setFragmentCases(0);
+        int cases = getIntent().getIntExtra("case", 0);
+        switch (cases) {
+            case 0:
+                setFragmentCases(0);
+                break;
+            case 1:
+                setFragmentCases(1);
+                break;
+            default:
+                break;
+        }
+
         /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,4 +85,9 @@ public class FragmentActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        popOffSubscreens();
+    }
 }

@@ -16,6 +16,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.coronavirustracker.Adapter.BaseAdapter;
+import com.example.coronavirustracker.Adapter.SypmtomBaseAdapter;
+import com.example.coronavirustracker.Modal.SypmtomsData;
+import com.example.coronavirustracker.Modal.SypmtomsGetData;
 import com.example.coronavirustracker.helper.Data;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -28,12 +31,18 @@ public class VolleyDataRetrive {
     private String url;
     private String TAG = "com.example.coronavirustracker.Activity.VollyDataRetriver";
     private Data data;
+    private SypmtomsGetData sData;
     public static List<com.example.coronavirustracker.Modal.Data> dataList = new ArrayList<>();
     private RequestQueue requestQueue;
     private BaseAdapter adapter;
+    private SypmtomBaseAdapter sypmtomBaseAdapter;
 
-    public void setAdapter(BaseAdapter adapter) {
-        this.adapter = adapter;
+    public void setBaseAdapter(BaseAdapter adapter) {
+        this.adapter = (BaseAdapter) adapter;
+    }
+
+    public void setSypmtomBaseAdapter(SypmtomBaseAdapter adapter) {
+        this.sypmtomBaseAdapter = (SypmtomBaseAdapter) adapter;
     }
 
     public VolleyDataRetrive(Context ctx, String url) {
@@ -60,7 +69,7 @@ public class VolleyDataRetrive {
                         d.setConfirmedcases(data.getFeed().getEntry().get(i).getGsx$confirmedcases().get$t());
                         d.setCountry(data.getFeed().getEntry().get(i).getGsx$country().get$t());
                         d.setReporteddeaths(data.getFeed().getEntry().get(i).getGsx$reporteddeaths().get$t());
-                        if (data.getFeed().getEntry().get(i).getGsx$reporteddeaths().get$t().equals("")){
+                        if (data.getFeed().getEntry().get(i).getGsx$reporteddeaths().get$t().equals("")) {
                             d.setReporteddeaths("0");
                         }
 //                            Log.e("country name :", data.getFeed().getEntry().get(i).getGsx$country().get$t() + " " + data.getFeed().getEntry().get(i).getGsx$reporteddeaths().get$t());
@@ -103,6 +112,63 @@ public class VolleyDataRetrive {
 //        AppController.getInstance().addToRequestQueue(stringRequest, TAG, ctx);
         Log.e(TAG, "getDataStringRequest: " + dataList.size());
         this.requestQueue.add(stringRequest);
+    }
+
+    public List<SypmtomsData> getSymptomsData() {
+        final List<SypmtomsData> dataListSym = new ArrayList<>();
+        Log.e(TAG, "getSymptomsData: ");
+        StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    GsonBuilder gsonBuilder = new GsonBuilder();
+                    Gson gson = gsonBuilder.create();
+                    Log.e(TAG, "onResponse: " + response);
+
+                    sData = gson.fromJson(response, SypmtomsGetData.class);
+                    Log.e("status", sData.getWarning());
+                    Log.e(TAG, "onResponse: " + sData.getSymptomArray().size());
+                    for (int i = 0; i < sData.getSymptomArray().size(); i++) {
+                        SypmtomsData d = new SypmtomsData();
+                        d.setDiscrpiption(sData.getSymptomArray().get(i).getDiscription());
+                        d.setImg_url(sData.getSymptomArray().get(i).getImgUrl());
+                        d.setTitle(sData.getSymptomArray().get(i).getTitle());
+                        dataListSym.add(d);
+                        sypmtomBaseAdapter.addDataList(d);
+                    }
+
+                } catch (Exception e) {
+                    if (BuildConfig.DEBUG)
+                        e.printStackTrace();
+                    Toast.makeText(ctx.getApplicationContext(),
+                            "Error: " + e.getMessage(),
+                            Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "onResponse: " + e.getMessage());
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                String message = null;
+                if (error instanceof NetworkError) {
+                    message = "Cannot connect to Internet...Please check your connection!";
+                } else if (error instanceof ServerError) {
+                    message = "The server could not be found. Please try again after some time!!";
+                } else if (error instanceof AuthFailureError) {
+                    message = "Cannot connect to Internet...Please check your connection!";
+                } else if (error instanceof ParseError) {
+                    message = "Parsing error! Please try again after some time!!";
+                } else if (error instanceof TimeoutError) {
+                    message = "Connection TimeOut! Please check your internet connection.";
+                }
+                Log.e(TAG, "onErrorResponse: " + message);
+
+            }
+        });
+        this.requestQueue.add(stringRequest);
+        return dataListSym;
     }
 }
 

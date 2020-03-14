@@ -17,4 +17,5 @@
     <string name="reported_deaths">Reported Deaths</string>
     <string name="location">Location</string>
     <string name="symptoms">Symptoms</string>
+    <string name="firebase_url">https://us-central1-diseases-b66a0.cloudfunctions.net/FUNCTIONS</string>
 </resources>
