@@ -16,4 +16,5 @@
     <string name="confirmed_cases">Confirmed Cases</string>
     <string name="reported_deaths">Reported Deaths</string>
     <string name="location">Location</string>
+    <string name="symptoms">Symptoms</string>
 </resources>

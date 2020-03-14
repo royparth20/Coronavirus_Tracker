@@ -10,9 +10,9 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
         android:elevation="15dp"
         android:padding="2dp"
-        android:layout_margin="2dp"
         app:cardElevation="10dp"
         app:cardMaxElevation="12dp"
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialCardView"
@@ -20,15 +20,24 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/MaterialAlertDialog.MaterialComponents.Title.Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Symptoms"
+                android:text="@string/symptoms"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:autoSizeMaxTextSize="12sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
