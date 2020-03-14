@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Coronavirus Tracker</string>
+    <string name="textfield_label">Hello World</string>
+    <string name="url_link">https://spreadsheets.google.com/feeds/list/1lwnfa-GlNRykWBL5y7tWpLxDoCfs8BvzWxFjeOZ1YJk/1/public/values?alt=json</string>
+    <string name="map">Map</string>
+    <string name="title_activity_fragment">FragmentActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="country">Country</string>
+    <string name="confirmed_cases">Confirmed Cases</string>
+    <string name="reported_deaths">Reported Deaths</string>
+    <string name="location">Location</string>
+</resources>
