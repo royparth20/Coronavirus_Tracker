@@ -15,7 +15,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         AppCompatImageView img=findViewById(R.id.img_splash);
-        Picasso.with(getApplicationContext()).load(R.drawable.background_banner_2).into(img);
+//        Picasso.with(getApplicationContext()).load(R.drawable.background_banner_2).into(img);
         new Handler().postDelayed(new Runnable() {
 
 
