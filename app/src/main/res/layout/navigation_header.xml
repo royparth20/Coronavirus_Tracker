@@ -9,5 +9,5 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:scaleType="centerCrop"
-        android:src="@drawable/covid_19" />
+        android:src="@drawable/background_banner" />
 </LinearLayout>

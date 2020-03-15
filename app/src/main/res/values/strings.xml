@@ -28,4 +28,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="self_care_1">\t\tIf you have mild symptoms, stay at home until you’ve recovered. You can relieve your symptoms if you:\n \u2023 rest and sleep \n \u2023 keep warm \n \u2023 drink plenty of liquids \n \u2023 use a room humidifier or take a hot shower to help ease a sore throat and cough</string>
     <string name="medicatl_tretment_1">\t\tIf you develop a fever, cough, and have difficulty breathing, promptly seek medical care. Call in advance and tell your health provider of any recent travel or recent contact with travelers.</string>
+    <string name="description_sure_exit_app">Do you want ot Exit ?</string>
+    <string name="label_exit_app">Exit</string>
 </resources>

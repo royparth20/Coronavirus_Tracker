@@ -2,9 +2,9 @@ package com.example.coronavirustracker.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +17,7 @@ import com.example.coronavirustracker.Fragment.NavigationDrawerFragment;
 import com.example.coronavirustracker.Modal.Data;
 import com.example.coronavirustracker.R;
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -79,5 +80,37 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        show_Exit();
+    }
+
+    private void show_Exit() {
+        String positiveText = getString(android.R.string.ok);
+        String negativeText = getString(android.R.string.cancel);
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(getApplicationContext())
+                .setTitle(getString(R.string.label_exit_app))
+                .setMessage(getString(R.string.description_sure_exit_app)).setPositiveButton(positiveText,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // dismiss alert dialog, update preferences with game score and restart play fragment
+                                Log.d("myTag", "positive button clicked");
+                                dialog.dismiss();
+                            }
+                        }).setNegativeButton(negativeText,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // dismiss dialog, start counter again
+                                dialog.dismiss();
+                                Log.d("myTag", "negative button clicked");
+                            }
+                        });
+
+        builder.show();
     }
 }
