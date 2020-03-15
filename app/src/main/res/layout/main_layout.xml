@@ -11,16 +11,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="@string/search_string"
+        android:hint="Search"
         android:padding="5dp"
+        android:textColorHint="@color/primaryColor"
+        app:boxBackgroundMode="filled"
+        app:counterEnabled="false"
         app:endIconCheckable="true"
-        app:shapeAppearance="@style/CutShapeTheme"
         app:endIconDrawable="@android:drawable/ic_menu_search"
-        app:endIconMode="custom">
+        app:endIconMode="custom"
+        app:errorEnabled="true"
+        app:helperText="@string/search_string"
+        app:helperTextEnabled="true"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:shapeAppearance="@style/CutShapeTheme">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
             android:id="@+id/editText_Search"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 

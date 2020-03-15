@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import com.royaldreams.coronavirustracker.R;
-import com.squareup.picasso.Picasso;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
