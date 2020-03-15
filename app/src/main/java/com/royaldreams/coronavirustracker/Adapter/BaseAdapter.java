@@ -5,11 +5,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.royaldreams.coronavirustracker.Modal.BaseViewHolder;
 import com.royaldreams.coronavirustracker.Modal.Data;
 import com.royaldreams.coronavirustracker.R;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
 
 public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
@@ -49,13 +55,14 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         return datatList.size();
     }
 
-    public void updateList(List<Data> list) {
-        datatList = list;
+    public void updateList(ArrayList search) {
+
+        datatList = (ArrayList<Data>) search;
         notifyDataSetChanged();
     }
 
-    public void addDataList(Data d) {
-        datatList.add(d);
+    public void addDataList(List<Data> d) {
+        this.datatList= d;
         notifyDataSetChanged();
     }
 }

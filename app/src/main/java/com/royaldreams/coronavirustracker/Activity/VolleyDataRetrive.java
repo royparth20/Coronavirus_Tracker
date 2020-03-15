@@ -17,6 +17,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.royaldreams.coronavirustracker.Adapter.BaseAdapter;
 import com.royaldreams.coronavirustracker.Adapter.SypmtomBaseAdapter;
+import com.royaldreams.coronavirustracker.Fragment.MainLayoutFragment;
 import com.royaldreams.coronavirustracker.Modal.SypmtomsData;
 import com.royaldreams.coronavirustracker.Modal.SypmtomsGetData;
 import com.royaldreams.coronavirustracker.helper.Data;
@@ -32,17 +33,17 @@ public class VolleyDataRetrive {
     private String TAG = "com.royaldreams.coronavirustracker.Activity.VollyDataRetriver";
     private Data data;
     private SypmtomsGetData sData;
-    public static List<com.royaldreams.coronavirustracker.Modal.Data> dataList = new ArrayList<>();
+    private static List<com.royaldreams.coronavirustracker.Modal.Data> dataList = new ArrayList<>();
     private RequestQueue requestQueue;
     private BaseAdapter adapter;
     private SypmtomBaseAdapter sypmtomBaseAdapter;
 
     public void setBaseAdapter(BaseAdapter adapter) {
-        this.adapter = (BaseAdapter) adapter;
+        this.adapter = adapter;
     }
 
     public void setSypmtomBaseAdapter(SypmtomBaseAdapter adapter) {
-        this.sypmtomBaseAdapter = (SypmtomBaseAdapter) adapter;
+        this.sypmtomBaseAdapter = adapter;
     }
 
     public VolleyDataRetrive(Context ctx, String url) {
@@ -54,6 +55,7 @@ public class VolleyDataRetrive {
 
     public void getDataStringRequest() {
         dataList = new ArrayList<>();
+        MainLayoutFragment.dataList.clear();
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -77,7 +79,12 @@ public class VolleyDataRetrive {
 //                        Log.e("reported deaths :", data.getFeed().getEntry().get(i).getGsx$reporteddeaths().get$t());
 //                        Log.e(TAG, "onResponse: " + dataList.size());
                         dataList.add(d);
-                        adapter.addDataList(d);
+                        new MainLayoutFragment().setDataListItem(d);
+                        if (i == data.getFeed().getEntry().size() - 1) {
+//                            MainLayoutFragment.dataList = dataList;
+                            Log.e(TAG, i + " onResponse: " + MainLayoutFragment.getDataList().size());
+                            adapter.notifyDataSetChanged();
+                        }
                     }
 
                 } catch (Exception e) {

@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:elevation="10dp"
     android:orientation="vertical"
     app:cardCornerRadius="5dp"
-    app:cardElevation="10dp"
+    app:cardElevation="8dp"
     app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.MaterialCardView"
     tools:ignore="UnusedAttribute">
 
