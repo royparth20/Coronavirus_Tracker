@@ -30,5 +30,8 @@
     <string name="medicatl_tretment_1">\t\tIf you develop a fever, cough, and have difficulty breathing, promptly seek medical care. Call in advance and tell your health provider of any recent travel or recent contact with travelers.</string>
     <string name="description_sure_exit_app">Do you want ot Exit ?</string>
     <string name="label_exit_app">Exit</string>
+
+
+    <string name="map_key" translatable="false">AIzaSyBoZTrm1a6mQMNTaOcOHMc9ZgnHb0nWEnc</string>
     <string name="search_string">Search By Country</string>
 </resources>
