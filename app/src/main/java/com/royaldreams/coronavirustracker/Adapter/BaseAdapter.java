@@ -1,6 +1,8 @@
 package com.royaldreams.coronavirustracker.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,10 +44,27 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
         Log.e(TAG, "onBindViewHolder: " + "true");
-        Data movie = datatList.get(position);
+        final Data movie = datatList.get(position);
         holder.country_textView.setText(movie.getCountry());
         holder.t1_textView.setText(movie.getConfirmedcases());
         holder.t2_textView.setText(movie.getReporteddeaths());
+        holder.map_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GeocodingLocation locationAddress = new GeocodingLocation();
+                String latlng = locationAddress.getAddressFromLocation("United States",ctx);
+                Intent intent = new Intent(ctx,MapActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("latitude",latlng.split("\n")[0]);
+                bundle.putString("longitude",latlng.split("\n")[1]);
+                bundle.putString("country",movie.getCountry());
+                bundle.putString("case",movie.getConfirmedcases());
+                bundle.putString("death",movie.getReporteddeaths());
+                intent.putExtras(bundle);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                ctx.startActivity(intent);
+            }
+        });
     }
 
     @Override

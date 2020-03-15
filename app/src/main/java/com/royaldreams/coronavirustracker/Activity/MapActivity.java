@@ -3,6 +3,7 @@ package com.royaldreams.coronavirustracker.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,11 +19,15 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     GoogleMap gMap;
     String latitude, longitude, country, cases, death;
+    TextView text_cases,text_deaths;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        text_cases = findViewById(R.id.text_cases);
+        text_deaths = findViewById(R.id.text_deaths);
 
         Bundle bundle = getIntent().getExtras();
         latitude = bundle.getString("latitude");
@@ -30,6 +35,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         country = bundle.getString("country");
         cases = bundle.getString("case");
         death = bundle.getString("death");
+
+        text_cases.setText("Confirmed Cases: "+cases);
+        text_deaths.setText("Reported Deaths: "+death);
 
 
         SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map);
@@ -63,7 +71,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         MarkerOptions markerOptions = new MarkerOptions();
         LatLng latLng = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
         markerOptions.position(latLng);
-        markerOptions.title("Country: "+country+"\nConfirmed Cases: "+cases+"\nReported Deaths: "+death);
         gMap.clear();
         gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
         gMap.addMarker(markerOptions);
