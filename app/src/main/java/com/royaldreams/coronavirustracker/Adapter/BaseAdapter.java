@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,6 +17,7 @@ import com.royaldreams.coronavirustracker.GeocodingLocation;
 import com.royaldreams.coronavirustracker.Modal.BaseViewHolder;
 import com.royaldreams.coronavirustracker.Modal.Data;
 import com.royaldreams.coronavirustracker.R;
+
 import java.util.List;
 
 public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
@@ -53,13 +55,15 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             public void onClick(View view) {
                 GeocodingLocation locationAddress = new GeocodingLocation();
                 String latlng = locationAddress.getAddressFromLocation("United States",ctx);
-                Intent intent = new Intent(ctx,MapActivity.class);
+//                String latlng = "20.5937\n78.9629";
+                Log.e("test latlng : ",latlng);
+                Intent intent = new Intent(ctx, MapActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("latitude",latlng.split("\n")[0]);
-                bundle.putString("longitude",latlng.split("\n")[1]);
-                bundle.putString("country",movie.getCountry());
-                bundle.putString("case",movie.getConfirmedcases());
-                bundle.putString("death",movie.getReporteddeaths());
+                bundle.putString("latitude", latlng.split("\n")[0]);
+                bundle.putString("longitude", latlng.split("\n")[1]);
+                bundle.putString("country", movie.getCountry());
+                bundle.putString("case", movie.getConfirmedcases());
+                bundle.putString("death", movie.getReporteddeaths());
                 intent.putExtras(bundle);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 ctx.startActivity(intent);

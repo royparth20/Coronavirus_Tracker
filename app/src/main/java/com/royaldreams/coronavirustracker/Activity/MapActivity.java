@@ -71,7 +71,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         MarkerOptions markerOptions = new MarkerOptions();
         LatLng latLng = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
         markerOptions.position(latLng);
+        markerOptions.title("Country : "+country);
         gMap.clear();
+
         gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
         gMap.addMarker(markerOptions);
        /* gMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {

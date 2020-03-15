@@ -14,7 +14,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".Activity.MapActivity"></activity>
-
         <activity android:name=".Activity.SplashScreenActivity">
 
         </activity>
@@ -23,6 +22,7 @@
             android:name=".Activity.FragmentActivity"
             android:label="@string/title_activity_fragment"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Bridge" />
+
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +33,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_key" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
     </application>
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -40,6 +44,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+
 
     <dist:module dist:instant="true" />
 
