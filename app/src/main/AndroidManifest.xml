@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.coronavirustracker">
+    package="com.royaldreams.coronavirustracker">
 
     <dist:module dist:instant="true" />
 
@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Activity.SplashScreenActivity">
+        <activity android:name="com.royaldreams.coronavirustracker.Activity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,10 +27,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.FragmentActivity"
+            android:name="com.royaldreams.coronavirustracker.Activity.FragmentActivity"
             android:label="@string/title_activity_fragment"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Bridge" />
-        <activity android:name=".Activity.MainActivity">
+        <activity android:name="com.royaldreams.coronavirustracker.Activity.MainActivity">
 
         </activity>
     </application>
